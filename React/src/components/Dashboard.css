@@ -1,0 +1,288 @@
+/* ----------- Container general Soft Glass ----------- */
+
+.dashboard-glass {
+  padding: 18px 22px 20px;
+  border-radius: 26px;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* DARK MODE */
+body.dark-mode .dashboard-glass {
+  background: rgba(35, 35, 46, 0.45);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------- Header fereastră ---------- */
+
+.dash-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dash-title {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.dash-subtitle {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .dash-subtitle {
+  color: #9ca3af;
+}
+
+/* ------------ CARDURI SUS ------------ */
+
+.glass-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .glass-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.glass-card {
+  flex: 1;
+  padding: 14px 16px 15px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .glass-card {
+  background: rgba(40, 40, 55, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* carduri de metrici */
+
+.metric-card {
+  min-height: 150px;
+}
+
+/* card centrat (titlu, cifre, text) */
+
+.center-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* titlurile din carduri */
+
+.metric-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.metric-title-center {
+  text-align: center;
+}
+
+/* cifre mari */
+
+.metric-main {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-top: 8px;
+}
+
+.metric-main-unit {
+  font-size: 0.95rem;
+  margin-left: 3px;
+  opacity: 0.7;
+}
+
+.metric-sub {
+  margin-top: 4px;
+  font-size: 0.83rem;
+  color: #6b7280;
+}
+
+body.dark-mode .metric-sub {
+  color: #9ca3af;
+}
+
+/* cea mai productivă zi */
+
+.bestday-date {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.bestday-summary {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.bestday-empty {
+  margin-top: 10px;
+}
+
+body.dark-mode .bestday-date {
+  color: #f9fafb;
+}
+
+body.dark-mode .bestday-summary {
+  color: #e5e7eb;
+}
+
+/* ------------ STREAK DOTS ------------ */
+
+.streak-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.streak-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.5);
+  opacity: 0.6;
+}
+
+.streak-full {
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  opacity: 1;
+}
+
+.streak-partial {
+  background: rgba(248, 113, 113, 0.9);
+  opacity: 0.9;
+}
+
+.streak-empty {
+  background: rgba(148, 163, 184, 0.3);
+  opacity: 0.4;
+}
+
+/* ------------ GRAFICE JOS ------------ */
+
+.glass-charts {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .glass-charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.glass-chart-card {
+  flex: 1;
+  padding: 14px 16px 16px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .glass-chart-card {
+  background: rgba(40, 40, 55, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chart {
+  height: 170px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ------------ TABURI (All time / 7 / 30, 7 / 30) ------------ */
+
+.dash-tabs {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.18);
+}
+
+.center-tabs {
+  margin-top: 8px;
+  justify-content: center;
+}
+
+.dash-tab {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #4b5563;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.dash-tab.active {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  color: #111827;
+}
+
+body.dark-mode .dash-tabs {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+body.dark-mode .dash-tab {
+  color: #9ca3af;
+}
+
+body.dark-mode .dash-tab.active {
+  background: rgba(249, 250, 251, 0.98);
+  color: #111827;
+}
+
+/* ------------ ORA MEDIE ------------ */
+
+.avg-time-main {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.avg-time-sub {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+body.dark-mode .avg-time-sub {
+  color: #9ca3af;
+}

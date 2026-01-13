@@ -1,0 +1,37 @@
+/* container simplu, doar spațiere */
+.progress-container {
+  margin-bottom: 16px;
+}
+
+/* bara de fundal (partea goală) */
+.progress-bar-shell {
+  width: 100%;
+  height: 6px; /* mai subțire, minimalist */
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(148, 163, 184, 0.4); /* gri discret pentru partea necompletată */
+}
+
+/* în dark mode, puțin mai închis */
+body.dark-mode .progress-bar-shell {
+  background: rgba(31, 41, 55, 0.85);
+}
+
+/* partea umplută */
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.25s ease, background 0.25s ease;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4); /* albastru când NU e full */
+}
+
+/* când toate taskurile sunt Completed → bara devine verde */
+.progress-fill.progress-full {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+/* nu mai avem text în bară, dar lăsăm clasa în caz că o vei folosi ulterior */
+.progress-text {
+  display: none;
+}

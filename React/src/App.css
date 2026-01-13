@@ -1,0 +1,734 @@
+/* ============================
+   THEME & BACKGROUND (macOS)
+============================ */
+
+:root {
+
+
+ /* LIGHT */
+  --text-color: #111827;
+
+  --window-bg: rgba(255, 255, 255, 0.78);
+  --window-border: rgba(255, 255, 255, 0.9);
+  --window-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+
+  --chrome-bg: rgba(244, 244, 248, 0.9);
+  --chrome-border: rgba(148, 163, 184, 0.35);
+
+  --icon-btn-bg: rgba(255, 255, 255, 0.7);
+  --icon-btn-border: rgba(148, 163, 184, 0.45);
+}
+
+body.dark-mode {
+
+
+
+ /* DARK */
+  --text-color: #e5e7eb;
+
+  --window-bg: rgba(15, 23, 42, 0.88);
+  --window-border: rgba(148, 163, 184, 0.5);
+  --window-shadow: 0 26px 60px rgba(15, 23, 42, 0.9);
+
+  --chrome-bg: rgba(17, 24, 39, 0.96);
+  --chrome-border: rgba(55, 65, 81, 0.9);
+
+    --icon-btn-bg: rgba(255, 255, 255, 0.12);  /* interior deschis */
+  --icon-btn-border: rgba(148, 163, 184, 0.7);
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", sans-serif;
+  color: var(--text-color);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background-image 0.5s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* ============================
+   APP LAYOUT
+============================ */
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* când dashboard-ul este deschis, mutăm fereastra principală spre stânga */
+.app-wrapper.dashboard-open {
+  justify-content: flex-start;
+  padding-left: 80px;
+}
+
+/* ============================
+   macOS WINDOW BASE STYLE
+============================ */
+
+.mac-window {
+  background: var(--window-bg);
+  border-radius: 22px;
+  border: 1px solid var(--window-border);
+  box-shadow: var(--window-shadow);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  color: var(--text-color);
+}
+
+/* Fereastra principală (Task Manager) */
+.main-panel {
+  width: 900px;
+  max-width: min(100%, 980px);
+  padding: 22px 24px 26px;
+  box-sizing: border-box;
+  transition: transform 0.35s ease;
+}
+
+/* ============================
+   HEADER BAR (Task Manager)
+============================ */
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.header-bar h1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ============================
+    ICON BUTTONS (Apple style)
+============================ */
+
+.icon-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--icon-btn-border);
+  background: var(--icon-btn-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+/* ICON COLOR — LIGHT MODE */
+.icon-btn svg {
+  color: #111827; /* în light mode iconițele sunt închise */
+}
+
+/* ICON COLOR — DARK MODE */
+body.dark-mode .icon-btn svg {
+  color: #ffffff !important; /* în dark mode iconițele sunt complet albe */
+}
+
+/* Stil hover */
+.icon-btn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+}
+
+
+/* buton statistici albastru subtil */
+/* STATISTICI (inchis) — trebuie să arate ca celelalte */
+.stats-btn {
+  background: var(--icon-btn-bg);
+  border: 1px solid var(--icon-btn-border);
+  color: var(--text-color);
+}
+
+/* buton Setări — folosește același stil de activ ca stats */
+.settings-btn {
+  /* deocamdată se bazează doar pe .icon-btn */
+}
+
+.settings-recycle-row {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.settings-recycle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.15s ease;
+}
+
+.settings-recycle-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.6);
+}
+
+/* STATISTICI (ACTIV) — albastru frumos */
+.stats-btn-active {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+  border-color: rgba(59, 130, 246, 0.9) !important;
+  color: white !important;
+}
+
+.stats-btn-active svg {
+  color: white !important;
+}
+
+
+.stats-btn:hover {
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.5);
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ============================
+   DASHBOARD WINDOW (DRAGGABLE)
+============================ */
+
+.dashboard-window,
+.settings-window {
+  position: absolute;
+  top: 80px;
+  right: 80px;
+  width: 520px;
+  max-width: 95vw;
+  cursor: default;
+}
+
+/* Fereastra de Setări – același stil de poziționare ca Dashboard */
+.settings-window {
+  position: absolute;
+  top: 150px;        /* un pic mai jos ca să nu se suprapună perfect cu Dashboard */
+  right: 80px;
+  width: 520px;
+  max-width: 95vw;
+  cursor: default;
+}
+
+
+
+/* Minim / maxim */
+.dashboard-maximized {
+  width: 760px;
+  max-width: 95vw;
+}
+
+.dashboard-minimized {
+  width: 420px;
+  min-height: 38px;
+  padding-right: 16px;
+}
+
+
+
+/* HEADER crom Big Sur */
+.window-header {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  box-sizing: border-box;
+  background: var(--chrome-bg);
+  border-bottom: 1px solid var(--chrome-border);
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  gap: 10px;
+  cursor: move; /* handle pentru react-draggable */
+}
+
+.traffic-lights {
+  display: flex;
+  gap: 8px;
+}
+
+/* butoanele macOS */
+.traffic-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.traffic-btn.close {
+  background: #ff5f57;
+}
+
+.traffic-btn.minimize {
+  background: #febc2e;
+}
+
+.traffic-btn.maximize {
+  background: #28c840;
+}
+
+.traffic-btn:hover {
+  filter: brightness(1.08);
+}
+
+.window-title {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* conținut dashboard */
+.window-body {
+  padding: 14px 16px 18px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+}
+
+/* când e minimizat → ascundem conținutul, păstrăm doar bara de sus */
+.dashboard-minimized .window-body {
+  display: none;
+}
+
+/* când dashboard-ul este minimizat: fereastră complet rotunjită */
+.dashboard-minimized {
+  border-radius: 22px !important;
+  overflow: hidden;
+}
+
+/* bara de sus să fie și ea complet rotunjită */
+.dashboard-minimized .window-header {
+  border-radius: 22px !important;
+}
+
+
+/* ============================
+   FORM, TASK LIST, PROGRESS
+   (preluate și rafinate din codul tău)
+============================ */
+
+form,
+.task-card,
+.progress-container {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+body.dark-mode form,
+body.dark-mode .task-card,
+body.dark-mode .progress-container {
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+/* layout formular */
+form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+form input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 0.95rem;
+}
+
+.add-btn {
+  background: #3b82f6;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.add-btn:hover {
+  filter: brightness(1.05);
+}
+
+/* responsivitate de bază */
+@media (max-width: 900px) {
+  .app-wrapper,
+  .app-wrapper.dashboard-open {
+    justify-content: center;
+    padding: 20px;
+  }
+
+    .dashboard-window,
+  .settings-window {
+    position: static;
+    margin-top: 20px;
+  }
+
+}
+
+/* ============================
+   SETTINGS WINDOW
+============================ */
+
+.settings-root {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.settings-section {
+  margin-bottom: 10px;
+}
+
+.settings-section h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.settings-help {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.settings-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.settings-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.day-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .day-pill {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.day-pill-active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.settings-inline-inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-inline-inputs input[type="time"],
+.settings-row input[type="time"] {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 0.9rem;
+  background: transparent;
+  color: inherit;
+}
+
+.settings-row input[type="text"] {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 0.9rem;
+  background: transparent;
+  color: inherit;
+}
+
+
+.settings-separator {
+  opacity: 0.7;
+}
+
+/* input text pentru numele programului */
+.settings-row input[type="text"] {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 0.9rem;
+  background: transparent;
+  color: inherit;
+}
+
+/* toggle Simplu / Personalizat */
+.settings-mode-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mode-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+body.dark-mode .mode-pill {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.mode-pill-active {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #fff;
+  border-color: transparent;
+}
+
+.settings-help-inline {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* layout pentru modul personalizat pe zile */
+.settings-days-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.day-row-custom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+/* ============================
+   SETTINGS BUTTON STYLING
+============================ */
+
+.settings-save-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  border: 1px solid rgba(59, 130, 246, 0.8);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.settings-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.settings-save-btn:active {
+  transform: scale(0.97);
+}
+.add-task-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+    position: relative;
+  z-index: 50;
+}
+
+/* input-ul de dată mai scurt */
+.add-task-form .date-input-narrow {
+  max-width: 140px; /* poți ajusta 120–160px după cum arată */
+}
+
+.settings-delete-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.settings-delete-btn:hover {
+  background: #fecaca;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+/* Reprogramare taskuri pierdute */
+.settings-repro-row {
+  margin-top: 6px;          /* mai aproape de text */
+  display: flex;
+  justify-content: flex-start; /* aliniat la stânga */
+}
+
+/* buton mai mic, rotunjit, stil secundar */
+.settings-repro-btn {
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 3px 9px rgba(37, 99, 235, 0.35);
+  transition: transform 0.08s ease, box-shadow 0.12s ease;
+}
+
+.settings-repro-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
+}
+
+/* Când în fereastra de setări este deschis Recycle Bin,
+   ascundem complet fereastra de Setări (header + background). */
+.settings-window:has(.recycle-window) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Ascundem header-ul (bara de sus) al ferestrei de Setări,
+   ca să nu se mai vadă deloc sub Recycle Bin. */
+.settings-window:has(.recycle-window) .window-header {
+  display: none;
+}
+
+
+
+/* Când Recycle Bin este deschis, ascundem toate ferestrele macOS
+   (Task Manager, Setări, Dashboard), lăsăm vizibilă doar .recycle-window */
+.app-wrapper.recycle-open .mac-window:not(.recycle-window) {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* ============================
+   DARK MODE – FIX VISIBILITY
+============================ */
+
+/* Fereastra principală să fie puțin mai închisă decât cardurile */
+body.dark-mode .mac-window.main-panel {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+/* Formular + carduri puțin mai luminoase decât panoul, să se distingă clar */
+body.dark-mode form,
+body.dark-mode .task-card,
+body.dark-mode .progress-container {
+  background: rgba(17, 24, 39, 0.96);
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+/* Input-uri în dark mode: fundal închis + text deschis */
+body.dark-mode form input,
+body.dark-mode input[type="text"],
+body.dark-mode input[type="date"],
+body.dark-mode input[type="time"] {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.75);
+}
+
+/* Butonul „Adaugă” – un pic de glow în dark mode */
+body.dark-mode .add-btn {
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.6);
+}
+
+/* ============================
+   DARK MODE – TEXT VISIBILITY
+============================ */
+
+/* Toate ferestrele tip mac-window au text deschis în dark */
+body.dark-mode .mac-window {
+  color: #e5e7eb;
+}
+
+/* Tot conținutul din fereastra de Setări să fie deschis la culoare */
+body.dark-mode .settings-window,
+body.dark-mode .settings-window * {
+  color: #e5e7eb;
+}
+
+/* Păstrăm culoarea roșie pentru butoanele de ștergere */
+body.dark-mode .settings-delete-btn,
+body.dark-mode .settings-delete-work-btn {
+  color: #b91c1c;
+}
+
+/* ============================
+   DARK MODE – INPUT PLACEHOLDER
+============================ */
+
+body.dark-mode input::placeholder {
+  color: #9ca3af;
+}

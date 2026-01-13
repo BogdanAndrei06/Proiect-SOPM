@@ -1,0 +1,169 @@
+/* OVERLAY – transparent, ca să se vadă fundalul original (light/dark)
+   iar dacă avem activeSound, îi dăm backgroundImage din inline style */
+.focus-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: transparent;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+body.dark-mode .focus-overlay {
+  color: #f9fafb;
+}
+
+/* mic card central, ca să fie textul lizibil și peste poze */
+.focus-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px 24px;
+  background: rgba(248, 250, 252, 0.85);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+}
+
+body.dark-mode .focus-content {
+  background: rgba(15, 23, 42, 0.82);
+}
+
+.focus-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.focus-date,
+.focus-time {
+  opacity: 0.8;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+/* TIMER */
+
+.focus-timer {
+  margin-top: 28px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.focus-timer-label {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.focus-timer-value {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* 🎧 SOUND BUTTONS */
+
+.focus-sounds {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+.sound-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(148, 163, 184, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+body.dark-mode .sound-btn {
+  background: rgba(30, 64, 175, 0.4);
+}
+
+.sound-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.35);
+}
+
+.sound-btn-active {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.45);
+}
+
+/* SLIDER VOLUM */
+
+.focus-volume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.focus-volume-label {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.focus-volume-range {
+  width: 220px;
+  accent-color: #3b82f6;
+}
+
+/* BUTOANE BACK / FINISH */
+
+.focus-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.focus-back-btn,
+.focus-finish-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.15s ease;
+}
+
+/* Back = albastru */
+.focus-back-btn {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+}
+
+.focus-back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px rgba(37, 99, 235, 0.4);
+}
+
+/* Finish = verde */
+.focus-finish-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(22, 163, 74, 0.3);
+}
+
+.focus-finish-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px rgba(22, 163, 74, 0.45);
+  filter: brightness(1.03);
+}

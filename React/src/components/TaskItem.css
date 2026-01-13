@@ -1,0 +1,789 @@
+/* ----- TASK CARD PREMIUM ----- */
+.task-card-premium {
+  position: relative;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  padding: 22px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: 0.25s ease;
+}
+
+body.dark-mode .task-card-premium {
+  background: rgba(35, 35, 45, 0.55);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.task-card-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+}
+
+/* când meniul de timp e deschis, ridicăm cardul deasupra celorlalte */
+.task-card-premium.task-card-active {
+  z-index: 9990;
+}
+
+
+/* TITLE */
+.task-title-premium {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* TOP BAR */
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BADGES */
+.task-badge {
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.task-badge.completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.task-badge.pending {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.task-badge.overdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.task-badge.upcoming {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.task-badge.in-progress {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* DATE */
+.task-date {
+  margin-left: 12px;
+  color: #6b7280;
+}
+
+/* MIDDLE BAR */
+.task-middle {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* SELECT */
+.task-select {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .task-select {
+  background: #1f2937;
+  border-color: #374151;
+  color: white;
+}
+
+/* DELETE BUTTON */
+.delete-btn-premium {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 9px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn-premium:hover {
+  background: #dc2626;
+}
+
+/* EMPTY STATE */
+.no-tasks {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+.task-card-premium {
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 22px;
+  margin: 18px 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.25s ease;
+}
+
+body.dark-mode .task-card-premium {
+  background: rgba(35, 35, 45, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+}
+
+.task-card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* HEADER */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Titlu + bulină de importanță */
+.task-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* bulina mică din dreptul titlului (în lista de taskuri) */
+.priority-dot-header {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  background-color: #22c55e; /* default low (verde) */
+}
+
+.priority-dot-header.high {
+  background-color: #ef4444; /* roșu */
+}
+
+.priority-dot-header.medium {
+  background-color: #facc15; /* galben */
+}
+
+.priority-dot-header.low {
+  background-color: #22c55e; /* verde */
+}
+
+/* pentru taskurile de Muncă – bulina este fixă, nu click */
+.priority-dot-static {
+  cursor: default;
+  pointer-events: none;
+}
+
+
+.task-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* SELECT */
+.task-select {
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(180, 180, 180, 0.4);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+body.dark-mode .task-select {
+  background: rgba(60, 60, 70, 0.6);
+  border: 1px solid rgba(110, 110, 130, 0.4);
+}
+
+/* INFO ROW */
+.task-info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+/* BADGES */
+.task-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.task-badge.completed {
+  background: rgba(80, 200, 120, 0.2);
+  color: #0f8a46;
+}
+
+.task-badge.pending {
+  background: rgba(80, 150, 250, 0.22);
+  color: #1b5dc5;
+}
+
+.task-badge.overdue {
+  background: rgba(255, 120, 120, 0.22);
+  color: #d93232;
+}
+
+.task-badge.canceled {
+  background: rgba(160, 160, 160, 0.22);
+  color: #555;
+}
+
+/* DATE */
+.task-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.75;
+}
+
+/* DELETE BUTTON */
+.delete-btn-premium {
+  margin-left: auto;
+  background: rgba(255, 90, 90, 0.18);
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #d33;
+}
+
+.delete-btn-premium:hover {
+  background: rgba(255, 90, 90, 0.35);
+}
+
+/* ============================
+   TIME / SCHEDULE PER TASK
+============================ */
+
+.task-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 9998;
+}
+
+.time-icon-btn {
+  border: none;
+  outline: none;
+  background: rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.time-icon-btn svg {
+  color: #4b5563;
+}
+
+body.dark-mode .time-icon-btn {
+  background: rgba(31, 41, 55, 0.9);
+}
+
+.time-icon-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.28);
+}
+
+.time-icon-btn-active {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+}
+
+.time-icon-btn-active svg {
+  color: #ffffff;
+}
+
+.time-input {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body.dark-mode .time-input {
+  background: rgba(17, 24, 39, 0.96);
+  border-color: rgba(75, 85, 99, 0.9);
+  color: #e5e7eb;
+}
+
+.time-interval {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.time-separator {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.time-mode-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.28);
+  z-index: 9999;
+  min-width: 160px;          /* ⬅️ suficient cât să încapă "Setează ora" pe un rând */
+}
+
+
+body.dark-mode .time-mode-menu {
+  background: rgba(17, 24, 39, 0.98);
+  border-color: rgba(55, 65, 81, 0.9);
+}
+
+.time-mode-menu button {
+  border: none;
+  background: transparent;
+  padding: 4px 6px;
+  font-size: 0.78rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.time-mode-menu button:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* VIEW DUPĂ „SALVEAZĂ ORA” */
+
+.task-time-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.task-time-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.time-edit-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.time-edit-btn:hover {
+  opacity: 1;
+}
+
+/* BUTON „SALVEAZĂ ORA” */
+
+.time-save-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  margin-left: 4px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.time-save-btn:hover {
+  filter: brightness(1.05);
+}
+
+
+/* Selector de importanță din bara de adăugare task */
+/* Selector de importanță din bara de adăugare task */
+.priority-selector {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 0 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.75);
+  overflow: hidden;                 /* ⬅️ foarte important: taie colțurile dreptunghiurilor */
+  height: 32px;
+  min-width: 110px;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+/* cele 3 segmente */
+.priority-pill {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+/* culorile segmentelelor în modul "segments" – pastel, simple */
+.priority-selector.priority-segments .priority-high {
+  background: #fecaca;   /* roșu pastel */
+}
+
+.priority-selector.priority-segments .priority-medium {
+  background: #fef3c7;   /* galben pastel */
+}
+
+.priority-selector.priority-segments .priority-low {
+  background: #bbf7d0;   /* verde pastel */
+}
+
+/* modul "solid": toată pastila ia culoarea importanței (fără gradient) */
+.priority-selector.priority-solid.importance-high {
+  background: #f97373;   /* roșu, dar tot cu vibe pastel */
+}
+
+.priority-selector.priority-solid.importance-medium {
+  background: #fde047;   /* galben clar */
+}
+
+.priority-selector.priority-solid.importance-low {
+  background: #22c55e;   /* verde clar */
+}
+
+/* în modul "solid" segmentele nu mai au fundal separat */
+.priority-selector.priority-solid .priority-pill {
+  background: transparent;
+}
+
+/* ===== DARK MODE ===== */
+
+body.dark-mode .priority-selector {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+/* segmente în dark mode – tot pastel dar puțin mai saturate */
+body.dark-mode .priority-selector.priority-segments .priority-high {
+  background: #fca5a5;
+}
+
+body.dark-mode .priority-selector.priority-segments .priority-medium {
+  background: #fef08a;
+}
+
+body.dark-mode .priority-selector.priority-segments .priority-low {
+  background: #86efac;
+}
+
+/* pastila plină în dark – aceleași culori simple, fără gradient */
+body.dark-mode .priority-selector.priority-solid.importance-high {
+  background: #f97373;
+}
+
+body.dark-mode .priority-selector.priority-solid.importance-medium {
+  background: #fde047;
+}
+
+body.dark-mode .priority-selector.priority-solid.importance-low {
+  background: #22c55e;
+}
+
+
+
+
+
+/* ============================
+   BARA DE ADAUGARE TASK NOU
+============================ */
+
+.add-task-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;          /* 👉 permite să treacă pe 2 rânduri dacă nu încape */
+}
+
+/* inputul "Adaugă o sarcină..." */
+.task-input {
+  flex: 1 1 220px;          /* ia spațiul rămas, dar se poate micșora */
+  min-width: 0;
+}
+
+/* inputul de dată */
+.date-input {
+  flex: 0 0 auto;
+}
+
+/* butonul "Adaugă" */
+.add-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* câmpurile de oră să nu fie uriașe */
+.time-input {
+  width: 90px;
+  min-width: 0;
+}
+
+.task-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.focus-btn-premium {
+  background: rgba(59, 130, 246, 0.18);
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1rem;
+}
+
+.focus-btn-premium:hover {
+  background: rgba(59, 130, 246, 0.35);
+}
+
+/* ============================
+   DARK MODE – TASK CARD UI
+============================ */
+
+/* Cardul de task e deja semi-dark, doar accentuăm un pic */
+body.dark-mode .task-card-premium {
+  background: rgba(31, 41, 55, 0.7);
+  border-color: rgba(156, 163, 175, 0.6);
+}
+
+/* Badge-uri mai lizibile pe fundal închis */
+body.dark-mode .task-badge.completed {
+  background: rgba(34, 197, 94, 0.18);
+  color: #6ee7b7;
+}
+
+body.dark-mode .task-badge.overdue {
+  background: rgba(248, 113, 113, 0.2);
+  color: #fecaca;
+}
+
+body.dark-mode .task-badge.canceled {
+  background: rgba(156, 163, 175, 0.2);
+  color: #e5e7eb;
+}
+
+/* Iconița de timp să fie deschisă în dark */
+body.dark-mode .time-icon-btn {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+body.dark-mode .time-icon-btn svg {
+  color: #e5e7eb;
+}
+
+/* Summary-ul de timp – text mai clar */
+body.dark-mode .task-time-text,
+body.dark-mode .time-edit-btn {
+  color: #e5e7eb;
+}
+
+/* Inputurile de oră în lista de taskuri */
+body.dark-mode .time-input {
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.75);
+}
+
+/* Pastila de importanță din bara de adăugare – fundal închis în dark */
+body.dark-mode .priority-selector {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 999px;
+  padding: 2px 6px;
+}
+
+/* Dacă mai ai și varianta cu segmente, asigurăm culori intense și pe dark */
+body.dark-mode .priority-selector.priority-segments .priority-high {
+  background: #fecaca;
+}
+
+body.dark-mode .priority-selector.priority-segments .priority-medium {
+  background: #fef3c7;
+}
+
+body.dark-mode .priority-selector.priority-segments .priority-low {
+  background: #bbf7d0;
+}
+
+/* ============================
+   DARK MODE – TASK CARD UI
+============================ */
+
+/* Cardul de task e deja semi-dark, doar accentuăm un pic */
+body.dark-mode .task-card-premium {
+  background: rgba(31, 41, 55, 0.7);
+  border-color: rgba(156, 163, 175, 0.6);
+}
+
+/* Badge-uri mai lizibile pe fundal închis */
+body.dark-mode .task-badge.completed {
+  background: rgba(34, 197, 94, 0.18);
+  color: #6ee7b7;
+}
+
+body.dark-mode .task-badge.overdue {
+  background: rgba(248, 113, 113, 0.2);
+  color: #fecaca;
+}
+
+body.dark-mode .task-badge.canceled {
+  background: rgba(156, 163, 175, 0.2);
+  color: #e5e7eb;
+}
+
+/* Iconița de timp să fie deschisă în dark */
+body.dark-mode .time-icon-btn {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+body.dark-mode .time-icon-btn svg {
+  color: #e5e7eb;
+}
+
+/* Summary-ul de timp – text mai clar */
+body.dark-mode .task-time-text,
+body.dark-mode .time-edit-btn {
+  color: #e5e7eb;
+}
+
+/* Inputurile de oră în lista de taskuri */
+body.dark-mode .time-input {
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.75);
+}
+
+/* Pastila de importanță din bara de adăugare – fundal închis în dark */
+body.dark-mode .priority-selector {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 999px;
+  padding: 2px 6px;
+}
+
+/* Dacă mai ai și varianta cu segmente, asigurăm culori intense și pe dark */
+body.dark-mode .priority-selector.priority-segments .priority-high {
+  background: #fecaca;
+}
+
+body.dark-mode .priority-selector.priority-segments .priority-medium {
+  background: #fef3c7;
+}
+
+body.dark-mode .priority-selector.priority-segments .priority-low {
+  background: #bbf7d0;
+}
+
+/* ============================
+   DARK MODE – TIME BUTTON & MENU
+============================ */
+
+/* Iconița de ceas să fie deschisă la culoare în dark mode */
+body.dark-mode .time-icon-btn svg {
+  color: #e5e7eb;
+}
+
+/* Meniul care apare la click pe ceas (Setează ora / Setează intervalul orar) */
+body.dark-mode .time-mode-menu {
+  background: rgba(17, 24, 39, 0.98);
+  border-color: rgba(55, 65, 81, 0.9);
+}
+
+/* Textul din opțiunile meniului să fie deschis (nu negru) */
+body.dark-mode .time-mode-menu button {
+  color: #e5e7eb;
+}
+
+/* Hover mai vizibil în dark mode */
+body.dark-mode .time-mode-menu button:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+/* ============================
+   DARK MODE – CALENDAR ICON
+============================ */
+
+/* Iconița de calendar să fie clicabilă în general */
+.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* În dark mode o inversăm ca să devină albă pe fundal închis */
+body.dark-mode .date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* ============================
+   FIX PRIORITY PILL SHAPE (LIGHT + DARK)
+   ============================ */
+
+/* pastila are colțurile rotunjite și taie orice colț dreptunghiular din interior */
+.priority-selector {
+  border-radius: 999px;
+  overflow: hidden;          /* ✨ important: nu mai lasă "dreptunghiul" să iasă din pastilă */
+}
+
+/* fiecare segment ocupă o treime din pastilă, fără colțuri proprii */
+.priority-pill {
+  flex: 1 1 0;
+  height: 100%;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* primul și ultimul segment refac colțurile pastilei */
+.priority-pill:first-child {
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+
+.priority-pill:last-child {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}

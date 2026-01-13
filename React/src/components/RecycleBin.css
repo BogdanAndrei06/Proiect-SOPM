@@ -1,0 +1,140 @@
+/* Fereastra Recycle Bin folosește stilul generic .mac-window din App.css.
+   Aici stilizăm doar conținutul. */
+
+.recycle-window {
+  width: 680px;
+  max-width: 95vw;
+}
+
+/* container interior */
+.recycle-content {
+  padding: 24px 24px 20px;
+}
+
+/* titlu mare din interior */
+.recycle-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4px 0 6px;
+  color: var(--text-color, #111827);
+}
+
+.recycle-subtitle,
+.recycle-empty {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-bottom: 18px;
+}
+
+/* listă de carduri cu scroll vertical dacă sunt multe */
+.recycle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* un task din recycle bin */
+.recycle-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+body.dark-mode .recycle-card {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+/* informații task */
+.recycle-info h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.recycle-date,
+.recycle-status {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.recycle-status span {
+  font-weight: 600;
+  color: #dc2626;
+}
+
+/* zona de acțiune (dată + buton) */
+.recycle-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recycle-actions input[type="date"] {
+  padding: 5px 8px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: white;
+}
+
+body.dark-mode .recycle-actions input[type="date"] {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+}
+
+/* buton reprogramare */
+.recycle-btn {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: white;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.15s ease;
+}
+
+.recycle-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.55);
+}
+
+/* footer cu buton Înapoi */
+.recycle-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.recycle-close-btn {
+  border: none;
+  padding: 9px 26px;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.75);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.recycle-close-btn:hover {
+  background: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.9);
+}
